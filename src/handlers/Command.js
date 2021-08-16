@@ -23,7 +23,6 @@ class CommandHandler {
         const commands = [];
 
         if (_this.options.logs) console.log("[OPCommands] Loaded " + files.length + " commands.");
-
         for (const file of files) {
             const commandFile = require(path.join(require.main.path, commandsDir, file));
             _this.client.commands.set(commandFile.name, commandFile);

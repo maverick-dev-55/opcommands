@@ -47,7 +47,7 @@ class OPCommands {
      */
     async addBotOwner(owner) {
         if (!owner) throw new Error("[OPCommands] Missing Owner ID.");
-        if (this.client.owners instanceof Array) this.client.owners = [owner]
+        if (!this.client.owners instanceof Array) this.client.owners = [owner]
         if (typeof owner != "string") throw new Error("[OPCommands] Owner parameter must be a String.");
         return this.client.owners.push(owner);
     }
