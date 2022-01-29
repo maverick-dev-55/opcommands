@@ -16,7 +16,6 @@ class CommandHandler {
     constructor (_this, commandsDir) {
         if (!this) throw new Error("[OPCommands] Internal error: missing _this parameter on Command Handler.");
         if (!commandsDir) throw new Error("[OPCommands] Internal error: missing eventsDir parameter on Command Handler.");
-        if (_this.options.notifyOwner && !_this.options.notifyOwnerMessage) throw new Error("[OPCommands] Missing notifyOwnerMessage parameter on options.");
         if (!fs.existsSync(commandsDir)) throw new Error("[OPCommands] Unexisting command directory.");
 
         _this.client.commands = new Discord.Collection();
@@ -24,6 +23,7 @@ class CommandHandler {
         const commands = [];
 
         if (_this.options.logs) console.log("[OPCommands] Loaded " + files.length + " commands.");
+
         for (const file of files) {
             const commandFile = require(path.join(require.main.path, commandsDir, file));
             _this.client.commands.set(commandFile.name, commandFile);
