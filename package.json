@@ -1,6 +1,6 @@
 {
   "name": "maverick-opcommands",
-  "version": "2.2.2",
+  "version": "2.3.2",
   "description": "An advanced Discord.js Command Handler that supports slash commands and more!",
   "main": "src/OPCommands.js",
   "scripts": {
